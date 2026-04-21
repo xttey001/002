@@ -70,6 +70,53 @@ const Analyzer: React.FC = () => {
             '为反派的转变增加更多铺垫，使角色发展更加自然',
             '在故事高潮部分增加更多悬念，提升读者的阅读体验'
           ]
+        },
+        highlights: {
+          highlightPoints: [
+            {
+              type: '逆袭',
+              description: '主角从被欺负到反败为胜的情节',
+              intensity: 90,
+              position: '第5章'
+            },
+            {
+              type: '揭秘',
+              description: '主角发现自己真实身份的情节',
+              intensity: 85,
+              position: '第8章'
+            },
+            {
+              type: '胜利',
+              description: '主角击败反派的最终决战',
+              intensity: 95,
+              position: '第12章'
+            }
+          ],
+          expectationPoints: [
+            {
+              type: '悬念',
+              description: '主角的超能力来源',
+              satisfaction: 80,
+              position: '第3章'
+            },
+            {
+              type: '伏笔',
+              description: '反派的真实目的',
+              satisfaction: 75,
+              position: '第7章'
+            },
+            {
+              type: '情感',
+              description: '主角与家人的关系',
+              satisfaction: 85,
+              position: '第10章'
+            }
+          ],
+          suggestions: [
+            '在故事前期增加更多小爽点，提升读者的阅读兴趣',
+            '加强期待点的铺垫，让读者更加期待后续情节',
+            '在关键爽点处增加细节描写，增强冲击力'
+          ]
         }
       };
       setAnalysisResult(mockResults[activeTab as keyof typeof mockResults]);
@@ -108,6 +155,12 @@ const Analyzer: React.FC = () => {
             >
               故事结构分析
             </button>
+            <button
+              className={`px-4 py-2 font-medium ${activeTab === 'highlights' ? 'text-accent border-b-2 border-accent' : 'text-gray-500 hover:text-primary'}`}
+              onClick={() => setActiveTab('highlights')}
+            >
+              爽点与期待点分析
+            </button>
           </div>
 
           {/* 输入区域 */}
@@ -143,6 +196,7 @@ const Analyzer: React.FC = () => {
               {activeTab === 'style' && '风格分析结果'}
               {activeTab === 'characters' && '角色分析结果'}
               {activeTab === 'story' && '故事结构分析结果'}
+              {activeTab === 'highlights' && '爽点与期待点分析结果'}
             </h2>
 
             {activeTab === 'structure' && (
@@ -300,6 +354,69 @@ const Analyzer: React.FC = () => {
                     <p className="text-neutral-dark">未发现明显情节漏洞</p>
                   )}
                 </div>
+                <div>
+                  <h3 className="font-medium text-lg mb-2">改进建议</h3>
+                  <ul className="list-disc list-inside space-y-2 text-neutral-dark">
+                    {analysisResult.suggestions.map((suggestion: string, index: number) => (
+                      <li key={index}>{suggestion}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'highlights' && (
+              <div className="space-y-6">
+                <div>
+                  <h3 className="font-medium text-lg mb-4">爽点分析</h3>
+                  <div className="space-y-4">
+                    {analysisResult.highlightPoints.map((point: any, index: number) => (
+                      <div key={index} className="border-b border-gray-200 pb-3">
+                        <div className="flex justify-between items-center mb-2">
+                          <h4 className="font-medium text-primary">{point.type}</h4>
+                          <span className="text-sm text-gray-500">{point.position}</span>
+                        </div>
+                        <p className="text-neutral-dark mb-2">{point.description}</p>
+                        <div>
+                          <h5 className="text-sm text-gray-500 mb-1">强度</h5>
+                          <div className="w-full bg-gray-200 rounded-full h-3">
+                            <div 
+                              className="bg-accent h-3 rounded-full" 
+                              style={{ width: `${point.intensity}%` }}
+                            ></div>
+                          </div>
+                          <p className="mt-1 text-sm text-neutral-dark">{point.intensity} / 100</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                <div>
+                  <h3 className="font-medium text-lg mb-4">期待点分析</h3>
+                  <div className="space-y-4">
+                    {analysisResult.expectationPoints.map((point: any, index: number) => (
+                      <div key={index} className="border-b border-gray-200 pb-3">
+                        <div className="flex justify-between items-center mb-2">
+                          <h4 className="font-medium text-primary">{point.type}</h4>
+                          <span className="text-sm text-gray-500">{point.position}</span>
+                        </div>
+                        <p className="text-neutral-dark mb-2">{point.description}</p>
+                        <div>
+                          <h5 className="text-sm text-gray-500 mb-1">满足度</h5>
+                          <div className="w-full bg-gray-200 rounded-full h-3">
+                            <div 
+                              className="bg-primary h-3 rounded-full" 
+                              style={{ width: `${point.satisfaction}%` }}
+                            ></div>
+                          </div>
+                          <p className="mt-1 text-sm text-neutral-dark">{point.satisfaction} / 100</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
                 <div>
                   <h3 className="font-medium text-lg mb-2">改进建议</h3>
                   <ul className="list-disc list-inside space-y-2 text-neutral-dark">
