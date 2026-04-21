@@ -163,6 +163,47 @@ const Analyzer: React.FC = () => {
             </button>
           </div>
 
+          {/* 预设选项 */}
+          <div className="mb-6">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              小说类型预设
+            </label>
+            <div className="flex flex-wrap gap-2">
+              <button 
+                className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm hover:bg-primary/20 transition-colors"
+                onClick={() => {
+                  setContent('第一章 平凡的一天\n\n李凡站在公司楼下，看着眼前的高楼大厦，心中感慨万千。作为一个普通的上班族，他每天过着朝九晚五的生活，日子平淡如水。\n\n突然，一道闪电划破天空，李凡感到一阵眩晕，等他清醒过来时，发现自己的脑海中多了一个神秘的系统。\n\n\"宿主已绑定修仙系统，当前等级：练气一层\",一个冰冷的机械声音在他脑海中响起。\n\n李凡以为自己在做梦，但当他试着运行系统中的修炼法诀时，真的感受到了体内有一股热流在涌动。\n\n从此，李凡的生活发生了翻天覆地的变化，他不仅获得了超凡的力量，还发现了一个隐藏在现代社会背后的修真世界。');
+                }}
+              >
+                都市修仙
+              </button>
+              <button 
+                className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm hover:bg-primary/20 transition-colors"
+                onClick={() => {
+                  setContent('第一章 总裁的契约新娘\n\n苏晚晚站在婚礼现场，看着面前的男人，心中充满了无奈。她和顾霆琛的婚姻只是一场交易，为了拯救家族企业，她不得不嫁给这个传说中冷漠无情的商业帝王。\n\n婚礼结束后，顾霆琛带着她来到了一座豪华的别墅，冷冷地说：\"记住，我们只是契约夫妻，不要妄想得到我的感情。\"\n\n苏晚晚点点头，她知道自己的位置。但随着时间的推移，她发现顾霆琛并不是表面上那么冷漠，他的心里似乎隐藏着不为人知的秘密。\n\n而苏晚晚的出现，也逐渐融化了顾霆琛冰封的心，两人在相处中产生了微妙的感情。');
+                }}
+              >
+                都市言情
+              </button>
+              <button 
+                className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm hover:bg-primary/20 transition-colors"
+                onClick={() => {
+                  setContent('第一章 穿越到古代\n\n林月瑶睁开眼睛，发现自己躺在一张古色古香的床上，周围的一切都很陌生。她记得自己只是在图书馆看书，怎么会突然出现在这里？\n\n这时，一个丫鬟模样的人走了进来，看到她醒了，惊喜地叫道：\"小姐，您终于醒了！\"\n\n林月瑶这才意识到，自己穿越到了古代，成了相府的大小姐。但她很快发现，这个相府并不简单，她的处境也十分危险。\n\n为了在这个陌生的时代生存下去，林月瑶凭借现代的知识和智慧，开始了她的古代生活，不仅赢得了众人的尊重，还遇到了属于自己的爱情。');
+                }}
+              >
+                古风穿越
+              </button>
+              <button 
+                className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm hover:bg-primary/20 transition-colors"
+                onClick={() => {
+                  setContent('第一章 末世降临\n\n陈阳正在上班，突然听到窗外传来尖叫声。他跑到窗边一看，发现大街上到处都是疯狂的人，他们张牙舞爪地攻击着其他人。\n\n末世降临了，病毒感染了大部分人类，把他们变成了丧尸。陈阳幸运地没有被感染，还觉醒了火系异能。\n\n为了生存，陈阳不得不踏上了求生之路。他遇到了各种各样的幸存者，组成了一个小团队。在这个充满危险的末世，他们不仅要面对丧尸的威胁，还要应对人类之间的勾心斗角。\n\n陈阳凭借着自己的实力和智慧，逐渐成为了团队的核心，带领着大家在末世中艰难求生。');
+                }}
+              >
+                末世生存
+              </button>
+            </div>
+          </div>
+
           {/* 输入区域 */}
           <div className="mb-6">
             <label className="block text-sm font-medium text-gray-700 mb-2">
